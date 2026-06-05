@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: app-udbl-v1
-        image: umbadieudonne913/web-udbl:latest 
+        image: umbadieudonne913/web-udbl:latest
 
         ports:
         - containerPort: 80
