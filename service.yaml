@@ -1,8 +1,11 @@
+# service.yaml
 apiVersion: v1
 kind: Service
 
 metadata:
   name: app-udbl-v1-service
+  labels:
+    app: app-udbl-v1
 
 spec:
   selector:

@@ -1,9 +1,11 @@
-# Test du  webhook Synopkube - 29/06/2026 16:23
+# deployment.yaml - 4 SECRETS EN CLAIR
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-udbl-v1
-  
+  labels:
+    app: app-udbl-v1
+
 spec:
   replicas: 1
 
@@ -20,6 +22,27 @@ spec:
       containers:
       - name: app-udbl-v1
         image: umbadieudonne913/web-udbl:latest 
+        imagePullPolicy: IfNotPresent
+
+        # SECRET 2: Mot de passe en clair
+        env:
+        - name: DB_PASSWORD
+          value: "password123"
+        - name: API_KEY
+          value: "sk-12345-abcde-67890-fghij"  # SECRET 3: Clé API en clair
+        - name: SECRET_TOKEN
+          value: "github_pat_1234567890ABCDEF" # SECRET 4: Token en clair
+        - name: REDIS_PASSWORD
+          value: "redis_1234567890"
 
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+
+        # SECRET 5 (bonus): Root user
+        securityContext:
+          runAsNonRoot: false
+          privileged: true
