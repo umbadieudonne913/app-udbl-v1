@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-udbl-v1
-  # Test SynopKube scan - ce commit devrait être REJETÉ car image :latest
-
+  
 spec:
   replicas: 1
 
