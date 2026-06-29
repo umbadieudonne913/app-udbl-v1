@@ -1,3 +1,4 @@
+# Test webhook Synopkube - 29/06/2026 16:23
 apiVersion: apps/v1
 kind: Deployment
 metadata:
