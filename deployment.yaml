@@ -20,7 +20,7 @@ spec:
       - name: app-udbl-v1
         image: umbadieudonne913/web-udbl:latest
 
-        # Mot de passe en clair juste
+        # Mot de passe en clair 
         env:
         - name: DB_PASSWORD
           value: "password123"
